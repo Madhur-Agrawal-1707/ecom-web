@@ -1,0 +1,1 @@
+export { CustomerLayout, type CustomerLayoutProps } from "./CustomerLayout";

@@ -13,10 +13,10 @@ const envSchema = z.object({
   VITE_APP_NAME: z.string().min(1).default("Fashion Store"),
   VITE_GOOGLE_CLIENT_ID: z
     .string()
-    .min(1, "VITE_GOOGLE_CLIENT_ID is required"),
+    .min(1, "213208536695-18a5atg5ql3v71qbca9mk11ldblbjk8c.apps.googleusercontent.com"),
   VITE_RAZORPAY_KEY_ID: z
     .string()
-    .min(1, "VITE_RAZORPAY_KEY_ID is required"),
+    .min(1, "rzp_test_SyiHrvLFXZ7G1M"),
 });
 
 type Env = z.infer<typeof envSchema>;

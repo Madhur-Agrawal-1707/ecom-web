@@ -1,0 +1,1 @@
+export { DesktopNavigation, type DesktopNavigationProps } from "./DesktopNavigation";

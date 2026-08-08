@@ -40,12 +40,13 @@ export interface TypographyProps
 
 export const Typography = forwardRef<HTMLElement, TypographyProps>(
   ({ className, variant = "body", as, ...props }, ref) => {
-    const Component = as ?? defaultElementByVariant[variant];
+    const resolvedVariant = variant ?? "body";
+    const Component = as ?? defaultElementByVariant[resolvedVariant];
 
     return (
       <Component
         ref={ref}
-        className={cn(typographyVariants({ variant }), className)}
+        className={cn(typographyVariants({ variant: resolvedVariant }), className)}
         {...(props as ComponentPropsWithoutRef<typeof Component>)}
       />
     );

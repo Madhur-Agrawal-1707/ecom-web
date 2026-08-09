@@ -1,8 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
-import { HomePage } from "../shared/pages/HomePage";
-import { NotFoundPage } from "../shared/pages/NotFoundPage";
-import { LoginPage } from "../features/auth/pages/LoginPage";
-import { RegisterPage } from "../features/auth/pages/RegisterPage";
+import { HomePage } from "@/shared/pages/HomePage";
+import { NotFoundPage } from "@/shared/pages/NotFoundPage";
+import { GuestRoute, LoginPage, RegisterPage } from "@/features/auth";
 
 export const router = createBrowserRouter([
   {
@@ -11,11 +10,19 @@ export const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <LoginPage />,
+    element: (
+      <GuestRoute>
+        <LoginPage />
+      </GuestRoute>
+    ),
   },
   {
     path: "/register",
-    element: <RegisterPage />,
+    element: (
+      <GuestRoute>
+        <RegisterPage />
+      </GuestRoute>
+    ),
   },
   {
     path: "*",

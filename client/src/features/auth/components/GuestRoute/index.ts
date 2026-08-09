@@ -1,0 +1,1 @@
+export { GuestRoute, type GuestRouteProps } from "./GuestRoute";

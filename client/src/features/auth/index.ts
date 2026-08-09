@@ -5,6 +5,7 @@ export { RegisterPage } from "./pages/RegisterPage";
 // Route guards
 export { ProtectedRoute, type ProtectedRouteProps } from "./components/ProtectedRoute";
 export { RoleGuard, type RoleGuardProps } from "./components/RoleGuard";
+export { GuestRoute, type GuestRouteProps } from "./components/GuestRoute";
 export { AuthLoading } from "./components/AuthLoading";
 
 // Hooks

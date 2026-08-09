@@ -1,13 +1,18 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Button, Input } from "@/shared/components";
 import { PasswordInput } from "../PasswordInput";
 import { useLogin } from "../../hooks";
 import { loginSchema, type LoginFormValues } from "../../schemas/auth.schemas";
 
+interface LocationState {
+  from?: { pathname: string };
+}
+
 export function LoginForm() {
   const navigate = useNavigate();
+  const location = useLocation();
   const login = useLogin();
 
   const {
@@ -20,7 +25,11 @@ export function LoginForm() {
 
   const onSubmit = handleSubmit((values) => {
     login.mutate(values, {
-      onSuccess: () => navigate("/"),
+      onSuccess: () => {
+        const state = location.state as LocationState | null;
+        const redirectTo = state?.from?.pathname ?? "/";
+        navigate(redirectTo, { replace: true });
+      },
     });
   });
 
